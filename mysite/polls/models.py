@@ -6,6 +6,9 @@ class Candidate(models.Model):
     party = models.CharField(max_length=20)
     votes = models.IntegerField(null=False, default=0)
     
+    def __str__(self):
+        return self.name + ' of the ' + self.party + ' party.' 
+    
 class Voter(models.Model):
     name = models.CharField(max_length=30)
     vote = models.ForeignKey(Candidate,on_delete=models.CASCADE)

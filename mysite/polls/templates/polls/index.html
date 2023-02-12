@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Candidates</title>
+    </head>
+    <body>
+        <h1>Candidates</h1>
+        <p>Here are the Candidates for the upcoming election</p>
+        {% for candidate in candidates%}
+            <p> {{ candidate.name }}</p>
+        {% endfor %}
+    </body>
+</html>
