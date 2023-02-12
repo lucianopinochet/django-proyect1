@@ -12,3 +12,6 @@ class Candidate(models.Model):
 class Voter(models.Model):
     name = models.CharField(max_length=30)
     vote = models.ForeignKey(Candidate,on_delete=models.CASCADE)
+    date = models.DateField('Date of vote')
+    def __str__(self):
+        return "I'm {} and i voted for {}.".format(self.name, self.vote.name)
