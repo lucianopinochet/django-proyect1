@@ -1,13 +1,23 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Candidates</title>
-    </head>
-    <body>
-        <h1>Candidates</h1>
-        <p>Here are the Candidates for the upcoming election</p>
-        {% for candidate in candidates%}
-            <p>{{ candidate.name }}</p>
-        {% endfor %}
-    </body>
-</html>
+{% extends "polls/layout.html"%}
+
+{%block title%} Index {%endblock%}
+
+{%block body%}
+{% if error_message%} {{ error_message }} {%endif%}
+<h1>Candidates</h1>
+    <p>Here are the Candidates for the upcoming election</p>
+    {% for candidate in candidates%}
+        <p><a href="{% url 'polls:c_info' candidate.name%}">{{ candidate.name }}</a></p>
+    {% endfor %}
+    <form action="{% url 'polls:vote' %}" method="post">
+        {% csrf_token %}
+        <fieldset>
+            <legend><h1>Candidates</h1></legend>
+            {%for candidate in candidates%}
+                <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ candidate.id }}">
+                <label for="choice{{ forloop.counter }}"> {{candidate.name}} </label><br>
+            {%endfor%}
+        </fieldset>
+        <input type="submit" value="Vote">
+    </form>
+{%endblock%}

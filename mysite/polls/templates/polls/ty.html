@@ -1,0 +1,6 @@
+{% extends 'polls/layout.html'%}
+    {%block title%} Thank You {%endblock%}
+    {%block body%}
+    <h1> {{candidate}} thank your vote.</h1> 
+    <p><a href="{% url 'polls:index' %}">Go back</a></p>
+    {%endblock%}

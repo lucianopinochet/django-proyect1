@@ -1,0 +1,8 @@
+{%extends 'polls/layout.html'%}
+    {%block title%} Candidate {{ candidate.name }} info {%endblock%}
+    {%block body%}
+        <h1>{{candidate.name}}</h1>
+        <h2>{{candidate.party}}</h2>
+        <h3>With {{candidate.votes}} votes</h3>
+        <p><a href="{% url 'polls:index' %}">Go back</a></p>
+    {%endblock%}
