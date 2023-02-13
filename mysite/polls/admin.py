@@ -1,5 +1,5 @@
 from django.contrib import admin
-from . import models
+from .models import *
 # Register your models here.
-admin.site.register(models.Candidate)
-admin.site.register(models.Voter)
+admin.site.register(Candidate)
+admin.site.register(Voter)
